@@ -192,12 +192,30 @@ export const processSteps = [
   },
 ];
 
-// PLACEHOLDER — illustrative projects, not real client work. Swap for real
-// case studies as they land; keep the same shape (challenge, approach,
-// result) so /work/[slug] keeps working.
+// Real projects come first (they carry a `url`). Entries marked
+// `illustrative: true` are sample work and show an "Illustrative" tag; swap
+// them for real case studies as they land. challenge/approach/result/stack
+// are optional and only rendered when present.
 export const workItems = [
   {
+    slug: "top-tennis-league",
+    tags: ["Web"],
+    title: "Top Tennis League",
+    body: "The website for a competitive tennis league open to players of every skill level.",
+    client: "Top Tennis League",
+    url: "https://toptennisleague.com",
+  },
+  {
+    slug: "amsted-care-services",
+    tags: ["Web"],
+    title: "Amsted Care Services",
+    body: "A website for a family-run, CQC-regulated home care provider in Liverpool, presenting its care services, team, testimonials and a clear path to a free consultation.",
+    client: "Amsted Care Services Ltd",
+    url: "https://www.amstedcareservices.co.uk/",
+  },
+  {
     slug: "warehouse-inventory-platform",
+    illustrative: true,
     tags: ["Web", "Automation"],
     title: "Warehouse Inventory Platform",
     body: "A real-time dashboard syncing stock levels across a dozen locations, replacing a spreadsheet three people updated by hand.",
@@ -212,6 +230,7 @@ export const workItems = [
   },
   {
     slug: "personal-finance-coach-app",
+    illustrative: true,
     tags: ["Mobile", "AI"],
     title: "Personal Finance Coach App",
     body: "An iOS/Android app with an AI coach that flags risky spending patterns before they become a real problem.",
@@ -226,6 +245,7 @@ export const workItems = [
   },
   {
     slug: "support-deflection-system",
+    illustrative: true,
     tags: ["AI", "Automation"],
     title: "Support Deflection System",
     body: "A chatbot wired into the ticketing workflow, resolving the majority of Tier-1 requests without a human touch.",
@@ -391,21 +411,19 @@ export type PricingPlan = {
   id: string;
   name: string;
   tagline: string;
-  price: string;
   cadence: string;
   bestFor: string;
   bullets: string[];
   featured?: boolean;
 };
 
-// Indicative starting points, not fixed quotes — every engagement gets a
-// firm number after discovery, once real scope exists to price against.
+// No per-plan prices are published; the pricing page only states that
+// projects start from £500. Every engagement gets a firm quote after scoping.
 export const pricingPlans: PricingPlan[] = [
   {
     id: "sprint",
     name: "Discovery Sprint",
     tagline: "Get a scoped plan before you commit to a build.",
-    price: "From $6,000",
     cadence: "one-off, 1–2 weeks",
     bestFor: "Teams validating an idea or scoping a bigger build",
     bullets: [
@@ -419,7 +437,6 @@ export const pricingPlans: PricingPlan[] = [
     id: "managed",
     name: "Managed Build",
     tagline: "A full team that owns your project end to end.",
-    price: "From $18,000/mo",
     cadence: "fixed-scope or ongoing",
     bestFor: "Startups and businesses shipping a product from scratch",
     bullets: [
@@ -434,7 +451,6 @@ export const pricingPlans: PricingPlan[] = [
     id: "augmentation",
     name: "Staff Augmentation",
     tagline: "Senior engineers who slot into your existing team.",
-    price: "From $9,500/mo per engineer",
     cadence: "monthly, cancel anytime",
     bestFor: "Teams that need more hands, not a new process",
     bullets: [
@@ -448,7 +464,6 @@ export const pricingPlans: PricingPlan[] = [
     id: "retainer",
     name: "Support Retainer",
     tagline: "Keep a shipped product running and improving.",
-    price: "From $3,000/mo",
     cadence: "monthly",
     bestFor: "Products already live that need upkeep, not a rebuild",
     bullets: [
@@ -463,7 +478,7 @@ export const pricingPlans: PricingPlan[] = [
 export const pricingFaqs = [
   {
     q: "Why isn't there a fixed price on the page?",
-    a: "Because a number that ignores your actual scope isn't a real quote — it's a guess dressed up as one. Every engagement gets a firm price after a short discovery pass, once we know what we're actually pricing.",
+    a: "Projects start from £500, but the right number depends entirely on your scope. Every engagement gets a firm price after a short conversation, once we know what we're actually pricing.",
   },
   {
     q: "Can we switch between models mid-project?",

@@ -42,7 +42,7 @@ export default async function CaseStudyPage({
             ← All case studies
           </Link>
           <div className="page-hero-eyebrow">
-            {item.tags.join(" · ")}
+            {item.tags.join(" · ")}{item.illustrative ? " · Illustrative" : ""}
           </div>
           <h1>{item.title}</h1>
           <p>{item.body}</p>
@@ -60,30 +60,48 @@ export default async function CaseStudyPage({
               <h4>Services</h4>
               <p>{item.tags.join(", ")}</p>
             </div>
-            <div className="case-meta-item case-meta-item--wide">
-              <h4>Stack</h4>
-              <div className="case-stack">
-                {item.stack.map((tech) => (
-                  <span className="tag" key={tech}>
-                    {tech}
-                  </span>
-                ))}
+            {item.stack && (
+              <div className="case-meta-item case-meta-item--wide">
+                <h4>Stack</h4>
+                <div className="case-stack">
+                  {item.stack.map((tech) => (
+                    <span className="tag" key={tech}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
+            {item.url && (
+              <div className="case-meta-item">
+                <h4>Live site</h4>
+                <p>
+                  <a href={item.url} target="_blank" rel="noopener noreferrer">
+                    {item.url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")} ↗
+                  </a>
+                </p>
+              </div>
+            )}
           </div>
 
-          <div className="case-section">
-            <h3>The challenge</h3>
-            <p>{item.challenge}</p>
-          </div>
-          <div className="case-section">
-            <h3>What we built</h3>
-            <p>{item.approach}</p>
-          </div>
-          <div className="case-section">
-            <h3>The result</h3>
-            <p>{item.result}</p>
-          </div>
+          {item.challenge && (
+            <div className="case-section">
+              <h3>The challenge</h3>
+              <p>{item.challenge}</p>
+            </div>
+          )}
+          {item.approach && (
+            <div className="case-section">
+              <h3>What we built</h3>
+              <p>{item.approach}</p>
+            </div>
+          )}
+          {item.result && (
+            <div className="case-section">
+              <h3>The result</h3>
+              <p>{item.result}</p>
+            </div>
+          )}
         </div>
       </section>
 

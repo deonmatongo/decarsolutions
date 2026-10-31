@@ -8,7 +8,7 @@ import { pricingPlans, pricingFaqs } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Pricing — Decar Solutions",
   description:
-    "Four ways to work with Decar Solutions: a discovery sprint, a managed build, staff augmentation, or an ongoing support retainer.",
+    "Projects from £500. Four ways to work with Decar Solutions: a discovery sprint, a managed build, staff augmentation, or an ongoing support retainer.",
 };
 
 export default function PricingPage() {
@@ -16,8 +16,8 @@ export default function PricingPage() {
     <>
       <PageHero
         eyebrow="Pricing"
-        title="Four ways to work with us"
-        lede="Pricing here is indicative — every engagement gets a firm quote once we know the real scope. Use this to see which model fits before we talk numbers."
+        title="Projects from £500 and up"
+        lede="Every project is quoted individually once we understand the scope. Here are the four ways to work with us — tell us what you need and we'll come back with a firm price."
       >
         <a href="/contact" className="btn btn-pill btn-ink btn-lg">
           Get a quote →
@@ -35,7 +35,6 @@ export default function PricingPage() {
                   {plan.featured && <span className="pricing-badge">Most popular</span>}
                   <h3 className="pricing-name">{plan.name}</h3>
                   <p className="pricing-tagline">{plan.tagline}</p>
-                  <div className="pricing-price">{plan.price}</div>
                   <div className="pricing-cadence">{plan.cadence}</div>
                   <p className="pricing-best">Best for: {plan.bestFor}</p>
                   <ul className="pricing-bullets">

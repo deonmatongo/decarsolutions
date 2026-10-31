@@ -10,14 +10,7 @@ export default function Work() {
         <div className="section-head">
           <div className="eyebrow">Case studies</div>
           <h2>Our work</h2>
-          <p>
-            Swap these for your real case studies as they land — keep the same
-            structure: challenge, build, result.
-          </p>
         </div>
-        <span className="work-note">
-          Placeholder projects — replace with real client work
-        </span>
         <div className="work-grid">
           {workItems.map((item, i) => (
             <Reveal key={item.slug} delay={i * 70}>
@@ -30,6 +23,7 @@ export default function Work() {
                         {tag}
                       </span>
                     ))}
+                    {item.illustrative && <span className="tag">Illustrative</span>}
                   </div>
                   <h3>{item.title}</h3>
                   <p>{item.body}</p>

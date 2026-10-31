@@ -27,9 +27,6 @@ export default function WorkPage() {
 
       <section className="section section-flush-top">
         <div className="wrap">
-          <span className="work-note">
-            Placeholder projects — replace with real client work
-          </span>
           <div className="work-grid">
             {workItems.map((item, i) => (
               <Reveal key={item.slug} delay={i * 70}>
@@ -42,6 +39,7 @@ export default function WorkPage() {
                           {tag}
                         </span>
                       ))}
+                      {item.illustrative && <span className="tag">Illustrative</span>}
                     </div>
                     <h3>{item.title}</h3>
                     <p>{item.body}</p>
