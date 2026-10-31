@@ -3,6 +3,7 @@ import PageHero from "@/components/PageHero";
 import GenerativeFigure from "@/components/GenerativeFigure";
 import TailoredSolutions from "@/components/TailoredSolutions";
 import FinalCta from "@/components/FinalCta";
+import Reveal from "@/components/Reveal";
 import { services, serviceDetails } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -32,35 +33,37 @@ export default function ServicesPage() {
           {services.map((service) => {
             const detail = serviceDetails[service.id];
             return (
-              <div className="service-detail" key={service.id} id={service.id}>
-                <div className="service-detail-grid">
-                  <div>
-                    <div className="service-detail-head">
-                      <GenerativeFigure kind={service.figure} idSuffix={`svc-${service.id}`} />
-                      <h3>{service.title}</h3>
+              <Reveal key={service.id}>
+                <div className="service-detail" id={service.id}>
+                  <div className="service-detail-grid">
+                    <div>
+                      <div className="service-detail-head">
+                        <GenerativeFigure kind={service.figure} idSuffix={`svc-${service.id}`} />
+                        <h3>{service.title}</h3>
+                      </div>
+                      <p className="lede">{detail?.summary ?? service.body}</p>
                     </div>
-                    <p className="lede">{detail?.summary ?? service.body}</p>
-                  </div>
-                  <div className="service-detail-col">
-                    <h4>What you get</h4>
-                    <ul>
-                      {detail?.deliverables.map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="service-detail-col">
-                    <h4>Typical stack</h4>
-                    <div className="service-detail-tags">
-                      {detail?.stack.map((item) => (
-                        <span className="tag" key={item}>
-                          {item}
-                        </span>
-                      ))}
+                    <div className="service-detail-col">
+                      <h4>What you get</h4>
+                      <ul>
+                        {detail?.deliverables.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="service-detail-col">
+                      <h4>Typical stack</h4>
+                      <div className="service-detail-tags">
+                        {detail?.stack.map((item) => (
+                          <span className="tag" key={item}>
+                            {item}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </Reveal>
             );
           })}
         </div>

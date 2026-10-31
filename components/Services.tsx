@@ -1,5 +1,6 @@
 import Link from "next/link";
 import GenerativeFigure from "./GenerativeFigure";
+import Reveal from "./Reveal";
 import { services } from "@/lib/content";
 
 export default function Services() {
@@ -8,7 +9,7 @@ export default function Services() {
       <div className="wrap">
         <div className="wwd-eyebrow">Experienced software house</div>
         <h2 className="wwd-head">
-          Discover how one{" "}
+          One{" "}
           {/* the word and the rule can't break apart, so the rule always
               trails the end of a line rather than indenting the next one */}
           <span className="wwd-nobreak">
@@ -18,12 +19,14 @@ export default function Services() {
         </h2>
 
         <div className="wwd-grid">
-          {services.map((service) => (
-            <article className="wwd-item" key={service.id}>
-              <GenerativeFigure kind={service.figure} idSuffix={service.id} />
-              <h3>{service.title}</h3>
-              <p>{service.body}</p>
-            </article>
+          {services.map((service, i) => (
+            <Reveal key={service.id} delay={(i % 2) * 90}>
+              <article className="wwd-item">
+                <GenerativeFigure kind={service.figure} idSuffix={service.id} />
+                <h3>{service.title}</h3>
+                <p>{service.body}</p>
+              </article>
+            </Reveal>
           ))}
         </div>
         <div className="work-more">

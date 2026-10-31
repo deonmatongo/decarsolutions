@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import Faq from "@/components/Faq";
 import FinalCta from "@/components/FinalCta";
+import Reveal from "@/components/Reveal";
 import { pricingPlans, pricingFaqs } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -26,26 +27,27 @@ export default function PricingPage() {
       <section className="section section-flush-top">
         <div className="wrap">
           <div className="pricing-grid">
-            {pricingPlans.map((plan) => (
-              <div
-                className={`pricing-card${plan.featured ? " pricing-card--featured" : ""}`}
-                key={plan.id}
-              >
-                {plan.featured && <span className="pricing-badge">Most popular</span>}
-                <h3 className="pricing-name">{plan.name}</h3>
-                <p className="pricing-tagline">{plan.tagline}</p>
-                <div className="pricing-price">{plan.price}</div>
-                <div className="pricing-cadence">{plan.cadence}</div>
-                <p className="pricing-best">Best for: {plan.bestFor}</p>
-                <ul className="pricing-bullets">
-                  {plan.bullets.map((bullet) => (
-                    <li key={bullet}>{bullet}</li>
-                  ))}
-                </ul>
-                <a href="/contact" className="btn btn-ghost">
-                  Talk to us →
-                </a>
-              </div>
+            {pricingPlans.map((plan, i) => (
+              <Reveal key={plan.id} delay={i * 70}>
+                <div
+                  className={`pricing-card${plan.featured ? " pricing-card--featured" : ""}`}
+                >
+                  {plan.featured && <span className="pricing-badge">Most popular</span>}
+                  <h3 className="pricing-name">{plan.name}</h3>
+                  <p className="pricing-tagline">{plan.tagline}</p>
+                  <div className="pricing-price">{plan.price}</div>
+                  <div className="pricing-cadence">{plan.cadence}</div>
+                  <p className="pricing-best">Best for: {plan.bestFor}</p>
+                  <ul className="pricing-bullets">
+                    {plan.bullets.map((bullet) => (
+                      <li key={bullet}>{bullet}</li>
+                    ))}
+                  </ul>
+                  <a href="/contact" className="btn btn-ghost">
+                    Talk to us →
+                  </a>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>

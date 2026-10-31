@@ -519,12 +519,6 @@ nav{
   display:flex; flex-direction:column; transition:transform 0.25s ease;
 }
 .work-card:hover{transform:translateY(-4px);}
-.work-thumb{
-  height:160px; display:flex; align-items:center; justify-content:center;
-  font-family:var(--mono); font-size:12px; color:#B9B6AC;
-  background:
-    repeating-linear-gradient(135deg, #ECEAE3, #ECEAE3 10px, #E4E1D8 10px, #E4E1D8 20px);
-}
 .work-body{padding:24px; flex:1; display:flex; flex-direction:column;}
 .work-tags{display:flex; gap:8px; margin-bottom:14px;}
 .tag{
@@ -607,14 +601,22 @@ footer{border-top:1px solid var(--line); padding:clamp(36px,6vw,48px) 0;}
 }
 .marquee-run{
   display:flex; flex:0 0 auto; align-items:center;
-  gap:clamp(40px,5vw,80px); padding-right:clamp(40px,5vw,80px);
+  gap:clamp(12px,1.6vw,20px); padding-right:clamp(12px,1.6vw,20px);
   list-style:none; margin:0;
   animation:marquee 38s linear infinite;
 }
 .marquee-run li{
-  font-family:var(--display); font-weight:600;
-  font-size:clamp(18px,2.4vw,26px); letter-spacing:-0.01em;
-  color:#B4B8C2; white-space:nowrap;
+  display:inline-flex; align-items:center; white-space:nowrap;
+  gap:10px; padding:12px clamp(18px,2.2vw,26px); border-radius:999px;
+  border:1px solid var(--hairline); background:var(--paper-1);
+  font-family:var(--mono); font-size:13px; letter-spacing:0.05em;
+  text-transform:uppercase; color:var(--ink-2);
+}
+.marquee-mark{
+  display:inline-flex; flex:none; align-items:center; justify-content:center;
+  width:20px; height:20px; border-radius:50%;
+  background:var(--ink-1); color:var(--paper-0);
+  font-family:var(--display); font-size:11px; font-weight:600; text-transform:none;
 }
 @keyframes marquee{to{transform:translateX(-100%);}}
 .marquee:hover .marquee-run{animation-play-state:paused;}
@@ -999,3 +1001,83 @@ footer{border-top:1px solid var(--line); padding:clamp(36px,6vw,48px) 0;}
 .sitemap-list a{font-size:16px; color:#EDEFF5;}
 .sitemap-list a:hover{color:var(--amber);}
 @media (min-width:640px){.sitemap-groups{grid-template-columns:repeat(2,1fr);}}
+
+/* =====================================================================
+   VISUAL REFRESH — scroll reveal, generated work covers, page-hero glow,
+   and depth touches for the interior pages.
+   ===================================================================== */
+
+/* ---------- SCROLL REVEAL ---------- */
+.reveal{
+  opacity:0; transform:translateY(18px);
+  transition:opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal-in{opacity:1; transform:none;}
+@media (prefers-reduced-motion: reduce){
+  .reveal{opacity:1; transform:none; transition:none;}
+}
+
+/* ---------- PAGE-HERO / HOME-HERO GLOW ---------- */
+/* a soft brand-color wash behind the light heroes, so they're not flat white */
+.page-hero, .hero--light{overflow:hidden;}
+.page-hero::before, .hero--light::before{
+  content:''; position:absolute; z-index:0; pointer-events:none;
+  top:-160px; right:-120px; width:520px; height:520px; border-radius:50%;
+  background:radial-gradient(circle, rgba(250,67,0,0.09), transparent 70%);
+}
+.page-hero .wrap, .hero--light .wrap{position:relative; z-index:1;}
+
+/* ---------- GENERATED WORK COVERS ---------- */
+/* Stands in for a real screenshot: the same figure/gradient language used
+   everywhere else on the site, so an empty thumbnail still looks designed. */
+.work-cover{
+  --cover-size:220px; --cover-offset:-70px;
+  position:relative; height:160px; overflow:hidden;
+  background:linear-gradient(155deg, #1B1613 0%, #100D0C 55%, #1E1611 100%);
+}
+.work-cover::before{
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(circle at 50% 45%, rgba(250,67,0,0.16), transparent 65%);
+}
+.work-cover-figure{
+  position:absolute; width:var(--cover-size); height:var(--cover-size); opacity:0.85;
+}
+.work-cover-figure svg{width:100%; height:100%;}
+.work-cover .cover-tl{top:var(--cover-offset); left:var(--cover-offset);}
+.work-cover .cover-tr{top:var(--cover-offset); right:var(--cover-offset);}
+.work-cover .cover-bl{bottom:var(--cover-offset); left:var(--cover-offset);}
+.work-cover .cover-br{bottom:var(--cover-offset); right:var(--cover-offset);}
+.work-cover--banner{
+  --cover-size:380px; --cover-offset:-120px;
+  height:clamp(200px,32vw,320px);
+}
+.work-card{transition:transform 0.25s ease, box-shadow 0.25s ease;}
+.work-card:hover{
+  box-shadow:0 0 0 1px rgba(250,67,0,0.28), 0 20px 44px rgba(0,0,0,0.4);
+}
+
+/* ---------- INDUSTRY CARD FIGURES ---------- */
+.industry-card-figure{margin-bottom:18px;}
+.industry-card-figure .wwd-figure{width:52px;}
+.industry-card{transition:transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;}
+.industry-card:hover{
+  transform:translateY(-4px); border-color:rgba(250,67,0,0.35);
+  box-shadow:0 20px 44px rgba(0,0,0,0.35);
+}
+
+/* ---------- PRICING CARD ACCENT ---------- */
+.pricing-card{
+  position:relative; overflow:hidden;
+  transition:transform 0.25s ease, box-shadow 0.25s ease;
+}
+.pricing-card::before{
+  content:''; position:absolute; top:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg, var(--amber), var(--amber-deep));
+  opacity:0.35;
+}
+.pricing-card--featured::before{opacity:1;}
+.pricing-card:hover{transform:translateY(-4px); box-shadow:0 20px 44px rgba(0,0,0,0.35);}
+
+/* ---------- CTA-BAND TEXTURE ---------- */
+.final-cta{overflow:hidden;}
+.final-cta .wrap{position:relative; z-index:1;}

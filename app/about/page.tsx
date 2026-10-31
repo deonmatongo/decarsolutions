@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import Team from "@/components/Team";
 import FinalCta from "@/components/FinalCta";
+import Reveal from "@/components/Reveal";
 import { aboutStats, aboutValues, careers, companyDetails } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -32,11 +33,13 @@ export default function AboutPage() {
             Illustrative figures — replace with real numbers as they land
           </span>
           <div className="stat-row">
-            {aboutStats.map((stat) => (
-              <div className="stat-item" key={stat.label}>
-                <span className="num">{stat.num}</span>
-                <span className="label">{stat.label}</span>
-              </div>
+            {aboutStats.map((stat, i) => (
+              <Reveal key={stat.label} delay={i * 70}>
+                <div className="stat-item">
+                  <span className="num">{stat.num}</span>
+                  <span className="label">{stat.label}</span>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -49,11 +52,13 @@ export default function AboutPage() {
             <h2>What doesn&rsquo;t change from project to project</h2>
           </div>
           <div className="about-values">
-            {aboutValues.map((value) => (
-              <div className="about-value" key={value.title}>
-                <h3>{value.title}</h3>
-                <p>{value.body}</p>
-              </div>
+            {aboutValues.map((value, i) => (
+              <Reveal key={value.title} delay={(i % 4) * 70}>
+                <div className="about-value">
+                  <h3>{value.title}</h3>
+                  <p>{value.body}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>

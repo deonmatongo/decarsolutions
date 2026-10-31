@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Reveal from "./Reveal";
+import WorkCover from "./WorkCover";
 import { workItems } from "@/lib/content";
 
 export default function Work() {
@@ -17,21 +19,23 @@ export default function Work() {
           Placeholder projects — replace with real client work
         </span>
         <div className="work-grid">
-          {workItems.map((item) => (
-            <Link href={`/work/${item.slug}`} className="work-card" key={item.slug}>
-              <div className="work-thumb">Project thumbnail</div>
-              <div className="work-body">
-                <div className="work-tags">
-                  {item.tags.map((tag) => (
-                    <span className="tag" key={tag}>
-                      {tag}
-                    </span>
-                  ))}
+          {workItems.map((item, i) => (
+            <Reveal key={item.slug} delay={i * 70}>
+              <Link href={`/work/${item.slug}`} className="work-card">
+                <WorkCover slug={item.slug} tags={item.tags} />
+                <div className="work-body">
+                  <div className="work-tags">
+                    {item.tags.map((tag) => (
+                      <span className="tag" key={tag}>
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
                 </div>
-                <h3>{item.title}</h3>
-                <p>{item.body}</p>
-              </div>
-            </Link>
+              </Link>
+            </Reveal>
           ))}
         </div>
         <div className="work-more">

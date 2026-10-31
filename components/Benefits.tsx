@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Reveal from "./Reveal";
 import { benefits, type Audience } from "@/lib/content";
 
 const AUDIENCES: { key: Audience; label: string }[] = [
@@ -42,11 +43,13 @@ export default function Benefits() {
           role="tabpanel"
           aria-labelledby={`benefits-tab-${audience}`}
         >
-          {benefits[audience].map((item) => (
-            <div className="benefits-item" key={item.title}>
-              <h3>{item.title}</h3>
-              <p>{item.body}</p>
-            </div>
+          {benefits[audience].map((item, i) => (
+            <Reveal key={item.title} delay={i * 70}>
+              <div className="benefits-item">
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </div>
+            </Reveal>
           ))}
         </div>
       </div>

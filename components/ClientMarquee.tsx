@@ -16,12 +16,20 @@ export default function ClientMarquee() {
       <div className="marquee">
         <ul className="marquee-run">
           {clientLogos.map((name) => (
-            <li key={name}>{name}</li>
+            <li key={name}>
+              <span className="marquee-mark" aria-hidden="true">
+                {name.charAt(0)}
+              </span>
+              {name}
+            </li>
           ))}
         </ul>
         <ul className="marquee-run" aria-hidden="true">
           {clientLogos.map((name) => (
-            <li key={name}>{name}</li>
+            <li key={name}>
+              <span className="marquee-mark">{name.charAt(0)}</span>
+              {name}
+            </li>
           ))}
         </ul>
       </div>

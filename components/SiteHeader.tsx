@@ -189,7 +189,7 @@ export default function SiteHeader() {
         data-float-cta
       >
         <CalendarIcon />
-        Book an appointment
+        Book a Free Consultation
       </a>
 
       <div
@@ -226,7 +226,7 @@ export default function SiteHeader() {
             className="btn btn-pill btn-ink btn-lg"
             onClick={() => setOpen(false)}
           >
-            Book an appointment
+            Book a Free Consultation
           </a>
           <span className="lang-switch">
             EN

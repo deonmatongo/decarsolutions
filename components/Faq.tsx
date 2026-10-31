@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Reveal from "./Reveal";
 import { faqs as defaultFaqs } from "@/lib/content";
 
 type FaqItem = { q: string; a: string };
@@ -28,26 +29,28 @@ export default function Faq({
           {items.map((item, i) => {
             const isOpen = openIndex === i;
             return (
-              <div className={`faq-item${isOpen ? " open" : ""}`} key={item.q}>
-                <button
-                  type="button"
-                  className="faq-q"
-                  aria-expanded={isOpen}
-                  aria-controls={`faq-answer-${i}`}
-                  onClick={() => setOpenIndex(isOpen ? null : i)}
-                >
-                  <span className="faq-num" aria-hidden="true">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="faq-text">{item.q}</span>
-                  <span className="plus" aria-hidden="true">
-                    +
-                  </span>
-                </button>
-                <div className="faq-a" id={`faq-answer-${i}`} role="region">
-                  <div className="faq-a-inner">{item.a}</div>
+              <Reveal key={item.q} delay={(i % 4) * 60}>
+                <div className={`faq-item${isOpen ? " open" : ""}`}>
+                  <button
+                    type="button"
+                    className="faq-q"
+                    aria-expanded={isOpen}
+                    aria-controls={`faq-answer-${i}`}
+                    onClick={() => setOpenIndex(isOpen ? null : i)}
+                  >
+                    <span className="faq-num" aria-hidden="true">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="faq-text">{item.q}</span>
+                    <span className="plus" aria-hidden="true">
+                      +
+                    </span>
+                  </button>
+                  <div className="faq-a" id={`faq-answer-${i}`} role="region">
+                    <div className="faq-a-inner">{item.a}</div>
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             );
           })}
         </div>

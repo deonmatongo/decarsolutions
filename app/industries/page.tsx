@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import FinalCta from "@/components/FinalCta";
+import Reveal from "@/components/Reveal";
+import GenerativeFigure, { type FigureKind } from "@/components/GenerativeFigure";
 import { industries } from "@/lib/content";
+
+// Cycled rather than hand-assigned — six industries, four figures, no
+// particular meaning to which gets which, just visual variety in the grid.
+const FIGURES: FigureKind[] = ["burst", "torus", "globe", "barrel"];
 
 export const metadata: Metadata = {
   title: "Industries — Decar Solutions",
@@ -25,16 +31,24 @@ export default function IndustriesPage() {
       <section className="section section-flush-top">
         <div className="wrap">
           <div className="industry-grid">
-            {industries.map((industry) => (
-              <article className="industry-card" key={industry.slug} id={industry.slug}>
-                <h3>{industry.title}</h3>
-                <p>{industry.summary}</p>
-                <ul>
-                  {industry.points.map((point) => (
-                    <li key={point}>{point}</li>
-                  ))}
-                </ul>
-              </article>
+            {industries.map((industry, i) => (
+              <Reveal key={industry.slug} delay={(i % 3) * 70}>
+                <article className="industry-card" id={industry.slug}>
+                  <div className="industry-card-figure">
+                    <GenerativeFigure
+                      kind={FIGURES[i % FIGURES.length]}
+                      idSuffix={industry.slug}
+                    />
+                  </div>
+                  <h3>{industry.title}</h3>
+                  <p>{industry.summary}</p>
+                  <ul>
+                    {industry.points.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+                </article>
+              </Reveal>
             ))}
           </div>
         </div>

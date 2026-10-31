@@ -590,7 +590,7 @@ export const footerColumns = [
         href: "mailto:hello@decarsolutions.com",
         label: "hello@decarsolutions.com",
       },
-      { href: "/contact", label: "Book an appointment" },
+      { href: "/contact", label: "Book a Free Consultation" },
     ],
   },
   {

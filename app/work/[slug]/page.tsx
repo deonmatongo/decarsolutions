@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import FinalCta from "@/components/FinalCta";
+import WorkCover from "@/components/WorkCover";
 import { workItems } from "@/lib/content";
 
 export function generateStaticParams() {
@@ -33,6 +34,8 @@ export default async function CaseStudyPage({
 
   return (
     <>
+      <WorkCover slug={item.slug} tags={item.tags} size="banner" />
+
       <section className="page-hero">
         <div className="wrap">
           <Link href="/work" className="post-back">
