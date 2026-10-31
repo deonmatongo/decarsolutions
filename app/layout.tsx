@@ -26,6 +26,8 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://decarsolutions.co.uk"),
+  alternates: { canonical: "./" },
   title: "Decar Solutions — Web, Mobile, AI & Automation",
   description:
     "Decar Solutions designs, builds, and automates the software your business runs on — web, mobile, AI, and automation under one roof.",
