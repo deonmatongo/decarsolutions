@@ -24,23 +24,6 @@ export default function FinalCta() {
 
           <div className="contact-details">
             <div className="contact-col">
-              <h4>Office</h4>
-              <p>
-                {companyDetails.name}
-                {companyDetails.addressLines.map((line) => (
-                  <span key={line}>{line}</span>
-                ))}
-              </p>
-            </div>
-            <div className="contact-col">
-              <h4>Registration</h4>
-              <p>
-                {companyDetails.registration.map((line) => (
-                  <span key={line}>{line}</span>
-                ))}
-              </p>
-            </div>
-            <div className="contact-col">
               <h4>Contact</h4>
               <p>
                 <a href={`mailto:${companyDetails.email}`}>

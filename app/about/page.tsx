@@ -3,7 +3,7 @@ import PageHero from "@/components/PageHero";
 import Team from "@/components/Team";
 import FinalCta from "@/components/FinalCta";
 import Reveal from "@/components/Reveal";
-import { aboutStats, aboutValues, careers, companyDetails } from "@/lib/content";
+import { aboutValues, careers, companyDetails } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "About us — Decar Solutions",
@@ -26,24 +26,6 @@ export default function AboutPage() {
           Get in touch
         </a>
       </PageHero>
-
-      <section className="section section-flush-top">
-        <div className="wrap">
-          <span className="work-note">
-            Illustrative figures — replace with real numbers as they land
-          </span>
-          <div className="stat-row">
-            {aboutStats.map((stat, i) => (
-              <Reveal key={stat.label} delay={i * 70}>
-                <div className="stat-item">
-                  <span className="num">{stat.num}</span>
-                  <span className="label">{stat.label}</span>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section className="section section-flush-top">
         <div className="wrap">

@@ -1,6 +1,5 @@
 import Hero from "@/components/Hero";
 import Showreel from "@/components/Showreel";
-import ClientMarquee from "@/components/ClientMarquee";
 import ValueStatement from "@/components/ValueStatement";
 import Services from "@/components/Services";
 import FlowSection from "@/components/FlowSection";
@@ -17,7 +16,6 @@ export default function Home() {
     <>
       <Hero />
       <Showreel />
-      <ClientMarquee />
       <ValueStatement />
       <Services />
       <FlowSection />

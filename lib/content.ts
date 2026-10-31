@@ -13,19 +13,6 @@ export const navLinks: {
   { href: "/blog", label: "Blog" },
 ];
 
-// PLACEHOLDER — swap in real client names once you have permission to use
-// them. Never list a company here that is not actually a Decar client.
-export const clientLogos = [
-  "Client One",
-  "Client Two",
-  "Client Three",
-  "Client Four",
-  "Client Five",
-  "Client Six",
-  "Client Seven",
-  "Client Eight",
-];
-
 export const valueStatement = {
   heading:
     "Our teams work in an agile rhythm that puts your commercial goals first and delivers the highest business value",
@@ -259,15 +246,6 @@ export const team = {
   heading: "Decar is a software house powered by people",
   body: "Meet the strategists, designers and engineers who turn ideas into products people actually use. From discovery and design through development and long-term support, we build solutions that fit your business objectives rather than our preferred stack. The range of problems this team has already solved is what lets us reach the right answer for yours faster.",
 };
-
-// PLACEHOLDER — illustrative figures for a growing studio. Replace with real
-// numbers once you have them to stand behind.
-export const aboutStats = [
-  { num: "30+", label: "Projects shipped" },
-  { num: "12", label: "Industries served" },
-  { num: "6 wks", label: "Median MVP timeline" },
-  { num: "92%", label: "Clients who extend the engagement" },
-];
 
 export const aboutValues = [
   {
@@ -554,22 +532,10 @@ export const blogPosts: BlogPost[] = [
   },
 ];
 
-// PLACEHOLDER — replace with Decar's real registered details before launch.
 export const companyDetails = {
   name: "Decar Solutions",
-  addressLines: ["[Street address]", "[City, postcode]"],
-  registration: ["[Company registration no.]", "[VAT ID]"],
   email: "deon@decarsolutions.com",
 };
-
-export const socialLinks = [
-  { href: "#", label: "Clutch" },
-  { href: "#", label: "LinkedIn" },
-  { href: "#", label: "Dribbble" },
-  { href: "#", label: "Behance" },
-  { href: "#", label: "Facebook" },
-  { href: "#", label: "Instagram" },
-];
 
 export const footerColumns = [
   {
@@ -596,10 +562,6 @@ export const footerColumns = [
       },
       { href: "/contact", label: "Book a Free Consultation" },
     ],
-  },
-  {
-    heading: "Follow us",
-    links: socialLinks,
   },
 ];
 

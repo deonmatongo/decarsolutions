@@ -31,18 +31,6 @@ export default function ContactPage() {
                   <h4>Email</h4>
                   <a href={`mailto:${companyDetails.email}`}>{companyDetails.email}</a>
                 </div>
-                <div className="contact-method">
-                  <h4>Office</h4>
-                  <p>
-                    {companyDetails.name}
-                    <br />
-                    {companyDetails.addressLines.join(", ")}
-                  </p>
-                </div>
-                <div className="contact-method">
-                  <h4>Registration</h4>
-                  <p>{companyDetails.registration.join(" · ")}</p>
-                </div>
               </div>
             </div>
 
