@@ -8,14 +8,6 @@ export default function SiteFooter() {
         <div className="footer-top">
           <div className="footer-brand">
             <Logo />
-            <p className="footer-address">
-              {companyDetails.addressLines.map((line) => (
-                <span key={line}>{line}</span>
-              ))}
-              {companyDetails.registration.map((line) => (
-                <span key={line}>{line}</span>
-              ))}
-            </p>
           </div>
           <div className="footer-links">
             {footerColumns.map((col) => (

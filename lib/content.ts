@@ -559,7 +559,7 @@ export const companyDetails = {
   name: "Decar Solutions",
   addressLines: ["[Street address]", "[City, postcode]"],
   registration: ["[Company registration no.]", "[VAT ID]"],
-  email: "hello@decarsolutions.com",
+  email: "deon@decarsolutions.com",
 };
 
 export const socialLinks = [
@@ -587,8 +587,12 @@ export const footerColumns = [
     heading: "Contact",
     links: [
       {
-        href: "mailto:hello@decarsolutions.com",
-        label: "hello@decarsolutions.com",
+        href: "mailto:deon@decarsolutions.com",
+        label: "deon@decarsolutions.com",
+      },
+      {
+        href: "https://wa.me/447351379238",
+        label: "WhatsApp: +44 7351 379238",
       },
       { href: "/contact", label: "Book a Free Consultation" },
     ],
